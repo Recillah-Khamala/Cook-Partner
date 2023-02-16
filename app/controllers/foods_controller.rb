@@ -51,19 +51,12 @@ class FoodsController < ApplicationController
   # DELETE /foods/1 or /foods/1.json
   def destroy
     Food.find(params[:id]).destroy
-    # @food.destroy
-
     respond_to do |format|
       format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
-  # def destroy
-  #   Food.find(params[:id]).destroy
-  #   redirect_to foods_path
-  # end
-  
   private
 
   # Use callbacks to share common setup or constraints between actions.
