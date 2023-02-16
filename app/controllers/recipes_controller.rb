@@ -41,6 +41,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
+    flash[:notice] = 'Recipe successfully destroyed'
     redirect_back(fallback_location: recipes_path)
   end
 end
