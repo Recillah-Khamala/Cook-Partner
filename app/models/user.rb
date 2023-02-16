@@ -4,8 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  # Association
+  # Associations
   has_many :foods, foreign_key: :user_id, dependent: :destroy
   has_many :recipes, foreign_key: :user_id, dependent: :destroy
+
+  # Validations
   validates :name, presence: true
 end
