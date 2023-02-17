@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     get 'shopping_list', to: 'shopping_lists#new', as: :new_shopping_list
   end
   
-  
   get 'public_recipes', to: 'recipes#public_recipes'
 
   resources :public_recipes, only: [:index]
