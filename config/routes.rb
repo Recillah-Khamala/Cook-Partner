@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :shopping_lists, only: [:index]
   devise_for :users
 
   root 'foods#index'
