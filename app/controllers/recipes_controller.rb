@@ -27,8 +27,8 @@ class RecipesController < ApplicationController
     @recipe_foods = @recipe.recipe_foods.includes(:food)
   end
 
-  def public
-    @recipes = Recipe.all.where(public: true)
+  def public_recipes
+    @public_recipes = Recipe.where(public: true).includes([:recipe_foods], [:foods]) # Solve N+1 problem
   end
 
   def update

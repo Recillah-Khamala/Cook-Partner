@@ -16,6 +16,9 @@
   </head>
 
   <body>
+    <%if user_signed_in? %>
+    <%= render "shared/header"%>
+    <%end%>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
