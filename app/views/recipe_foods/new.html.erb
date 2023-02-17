@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <%= form_with url: recipe_recipe_foods_path, scope: :recipe_food, class: "p-3 border rounded" do |form| %>
+        <h4 class="mb-3">Add Ingredient</h4>
+        <div class="mb-3">
+          <%= form.label :quantity, "Quantity", class: "form-label" %>
+          <%= form.number_field :quantity, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :food_id, "Food", class: "form-label" %>
+          <div>
+            <%= form.collection_select(:food_id, @foods, :id, :name, {prompt: "Please select a food"}, {class: "form-select"}) %>
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <%= form.submit "Add Ingredient", class: "btn btn-primary btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

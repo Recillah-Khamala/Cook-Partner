@@ -5,7 +5,8 @@
 		<%= form_with model:@recipe, url:recipe_path(@recipe.id), html:{method: :put} do |form| %>
 		    <div class="p-2 border-black border-1 rounded">
 		      <%= form.label :public, class:"text-xl ml-5 flex-1 p-4" %>
-		      <%= form.check_box :public, class: "mr-5 flex-1 border-black border-4 p-4 rounded", onchange: "this.form.submit()" %>
+		      <%# <%= form.check_box :public, class: "mr-5 flex-1 border-black border-4 p-4 rounded", onchange: "this.form.submit()" %>
+					<input class="form-check-input" type="checkbox" id="toggle-public" <%= @recipe.public ? "checked" : "" %>>
 		    </div>
 		<% end %>
 	<% end %>
