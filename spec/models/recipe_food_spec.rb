@@ -4,7 +4,7 @@ RSpec.describe RecipeFood, type: :model do
   before :each do
     @user = User.create(name: 'Recillah', email: 'recilahk@gmail.com', password: '123456')
     @recipe = Recipe.create(user: @user, name: 'githeri', preparation_time: 10, cooking_time: 3,
-        description: 'boil till tender', public: false)
+                            description: 'boil till tender', public: false)
     @food = Food.create(name: 'beans', user: @user, price: 2, measurement_unit: 'kg', quantity: 4, user_id: @user.id)
     @recipe_food = @recipe.recipe_foods.create(quantity: 5, recipe_id: @recipe.id, food_id: @food.id)
   end

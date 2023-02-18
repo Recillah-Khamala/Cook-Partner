@@ -16,5 +16,5 @@ RSpec.describe 'Foods', type: :request do
       get foods_path
       expect(response.content_type).to include 'text/html'
     end
-  end 
+  end
 end
