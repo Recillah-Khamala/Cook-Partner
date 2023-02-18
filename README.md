@@ -155,7 +155,7 @@ If you like this project...
 
 - **How to use this project?**
 
-  - check the [Getting Started](#getting-started) section to have a complete guid on how to setup and run teh project.
+  - check the [Getting Started](#getting-started) section to have a complete guide on how to setup and run the project.
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
