@@ -1,0 +1,25 @@
+<div class="p-4 w-2/3 flex justfy-center flex-col">
+  <br>
+  <h1 class="text-2xl font-bold flex justify-center">Public Recipes</h1>
+  <br>
+  <% @public_recipes.each do |recipe| %>
+    <div class="shadow-lg p-4 rounded-lg bg-white mb-4 flex justify-between">
+      <div>
+        <%= link_to recipe, class: "text-lg font-bold text-blue-500" do %>
+          <h2><%= recipe.name %></h2>
+        <% end %>
+        <p class="pb-0 text-gray-600">
+          By: <%= User.find(recipe.user_id).name  %>
+        </p>
+      </div>
+      <div>
+        <p class="text-gray-600">Total food items: <%= recipe.foods.length %></p>
+        <p class="text-gray-600">
+          Total cost: <%= recipe.foods.reduce(0) do |sum, food| %>
+            <% sum + (food.quantity * food.price)  %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>

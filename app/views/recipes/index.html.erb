@@ -1,0 +1,36 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <br>
+  <div class="flex justify-between items-center mt-11">
+    <h1 class="font-bold text-4xl">Recipes</h1>
+    <%= link_to 'New recipe', new_recipe_path(current_user), class: "rounded-lg py-3 px-5 bg-green-600 text-white block font-medium" %>
+  </div>
+  <br>
+  <div id="recipes" class="grid grid-cols-1 gap-6 place-items-center mt-8 ">
+    <% @recipes.each do |recipe|%>
+      <div class="w-full border border-gray-300 rounded-lg shadow-lg">
+        <div class="p-6 flex justify-between ">
+          <div class="w-1/3">
+            <%= link_to recipe.name, recipe_path(id: recipe.id), class: "text-white text-xl leading-tight font-medium mb-2 block" %>
+            <% if can? :delete, recipe %>
+            <%= button_to 'Delete Recipe', recipe_path(recipe.id), method: :delete, class: "inline-block rounded-lg py-2 px-3 bg-red-600 text-white font-medium" %>
+          <% end %>
+          </div> 
+          <div class="w-2/3">
+            <p class="text-white text-base mb-4">
+              <%= recipe.description %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-8">
+    <% if @recipes.empty? %>
+      <p>There are no recipes.</p>
+    <% end %>
+  </div>
+</div>
