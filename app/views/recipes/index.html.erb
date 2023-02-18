@@ -2,18 +2,18 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
-
+  <br>
   <div class="flex justify-between items-center mt-11">
     <h1 class="font-bold text-4xl">Recipes</h1>
-    <%= link_to 'New recipe', new_recipe_path(current_user), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to 'New recipe', new_recipe_path(current_user), class: "rounded-lg py-3 px-5 bg-green-600 text-white block font-medium" %>
   </div>
-
-  <div id="recipes" class="grid grid-cols-1 gap-6 place-items-center mt-8">
+  <br>
+  <div id="recipes" class="grid grid-cols-1 gap-6 place-items-center mt-8 ">
     <% @recipes.each do |recipe|%>
       <div class="w-full border border-gray-300 rounded-lg shadow-lg">
         <div class="p-6">
-          <%= link_to recipe.name, recipe_path(id: recipe.id), class: "text-gray-900 text-xl leading-tight font-medium mb-2 block" %>
-          <p class="text-gray-700 text-base mb-4">
+          <%= link_to recipe.name, recipe_path(id: recipe.id), class: "text-white text-xl leading-tight font-medium mb-2 block" %>
+          <p class="text-white text-base mb-4">
             <%= recipe.description %>
           </p>
           <% if can? :delete, recipe %>

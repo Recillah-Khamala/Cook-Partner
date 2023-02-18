@@ -3,25 +3,26 @@
     <h3 class="text-4xl font-bold my-4">Shopping List</h3>
     <div class="container mt-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="p-4 bg-gray-100 rounded-lg">
+        <div class="p-4 bg-black rounded-lg">
           <% quan = 0 %>
           <% @recipes.each do |recipe_food| %>
             <% quan += recipe_food.quantity%>
           <% end %>
-          <p class="text-xl">Amount of food items to buy: <strong><%= quan %></strong></p>
+          <p class="text-xl bg-black text-white">Amount of food items to buy: <strong><%= quan %></strong></p>
         </div>
-        <div class="p-4 bg-gray-100 rounded-lg">
+        <div class="p-4 bg-black rounded-lg">
           <% rec = 0 %>
           <% @recipes.each do |recipe_food| %>
             <% rec += recipe_food.food.price * recipe_food.quantity%>
           <% end %>
-          <p class="text-xl">Total value of food needed: $<strong><%= rec %></strong></p>
+          <p class="text-xl bg-black text-white">Total value of food needed: $<strong><%= rec %></strong></p>
         </div>
       </div>
     </div>
+    <br>
     <table class="w-full mt-8">
       <thead>
-        <tr class="bg-gray-100">
+        <tr class="bg-black text-white">
           <th class="py-2 px-4 font-semibold">Food</th>
           <th class="py-2 px-4 font-semibold">Quantity</th>
           <th class="py-2 px-4 font-semibold">Unit Price</th>
@@ -38,4 +39,6 @@
       </tbody>
     </table>
   </div>
+  <br>
+  <%= link_to 'Back to recipes', recipes_path(current_user), class: "ml-2 rounded-lg py-3 px-3 bg-red-500 text-white inline-block font-medium" %>
 </div>

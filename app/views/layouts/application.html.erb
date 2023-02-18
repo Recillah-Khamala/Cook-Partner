@@ -15,11 +15,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-indigo-400 opacity-20">
     <%if user_signed_in? %>
     <%= render "shared/header"%>
     <%end%>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto mt-28 flex">
       <%= yield %>
     </main>
   </body>
