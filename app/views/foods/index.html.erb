@@ -15,7 +15,7 @@
       </thead>
       <tbody class="overflow-y-scroll" style="height: 200px">
         <% @foods.each_with_index do |food, index| %>
-          <tr class="bg-white even:bg-gray-100 border border-b dark:bg-gray-800 dark:border-gray-700">
+          <tr class="bg-white even:bg-gray-100 capitalize border border-b dark:bg-gray-800 dark:border-gray-700">
             <%= render partial: "food", locals: {data: food, price: true, quantity: false} %>
             <td class="px-6 py-4" >
               <%= button_to "Delete", food_path(food.id), method: :delete, data: { confirm: "Are you sure?" }, class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %>
