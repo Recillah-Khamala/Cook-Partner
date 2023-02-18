@@ -6,7 +6,7 @@
         <div class="p-4 bg-black rounded-lg">
           <% quan = 0 %>
           <% @recipes.each do |recipe_food| %>
-            <% quan += recipe_food.quantity%>
+            <% quan += recipe_food.quantity.to_i%>
           <% end %>
           <p class="text-xl bg-black text-white">Amount of food items to buy: <strong><%= quan %></strong></p>
         </div>
