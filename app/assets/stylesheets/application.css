@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+ /* @import "custom/devise_styles.css"; */
+
  select::-ms-expand {
   display: none;
 }
