@@ -1,0 +1,46 @@
+<div class="flex flex-col">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="border-b">
+            <tr>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                #
+              </th>
+              <% headers.each do |t|%>
+                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                <%= t %>
+              </th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <% foods.includes(:recipe_foods).each_with_index do |food, i| %>
+              <tr class="border-b">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= i + 1 %></td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  <%= food.name %>
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  <%= food.recipe_foods[i].quantity %>
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                 <strong>$</strong><%= food.price * food.recipe_foods[i].quantity.to_i %>
+                </td>
+                <td class="flex gap-2 text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <%= form_with(model: RecipeFood, url:  edit_recipe_recipe_food_path(current_user, food.id, food.recipe_foods[i].id), method: :GET) do |form| %>
+                  <%= form.submit 'Modify', class: "underline text-blue-500 pointer-cursor" %>
+                 <% end %>
+                 <%= form_with(model: RecipeFood, url:  recipe_recipe_food_path(current_user, food.id, food.recipe_foods[i].id), method: :delete) do |form| %>
+                  <%= form.submit 'Remove', class: "underline text-blue-500" %>
+                 <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
