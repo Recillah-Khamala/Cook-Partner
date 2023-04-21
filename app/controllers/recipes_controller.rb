@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
 
   def index
     # @recipes = Recipe.all.includes([:user])
-    @recipes = current_user.recipes.includes([:user])
+    @recipes = current_user.recipes
   end
 
   def new

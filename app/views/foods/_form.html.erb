@@ -11,27 +11,45 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="row mb-3">
+    <div class="col-12 col-md-3">
+      <%= form.label :name, class: "form-label" %>
+    </div>
+    <div class="col-12 col-md-9">
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="my-5">
-    <%= form.label :measurement_unit %>
-    <%= form.text_field :measurement_unit, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="row mb-3">
+    <div class="col-12 col-md-3">
+      <%= form.label :measurement_unit, class: "form-label" %>
+    </div>
+    <div class="col-12 col-md-9">
+      <%= form.text_field :measurement_unit, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="my-5">
-    <%= form.label :price %>
-    <%= form.number_field :price, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="row mb-3">
+    <div class="col-12 col-md-3">
+      <%= form.label :price, class: "form-label" %>
+    </div>
+    <div class="col-12 col-md-9">
+      <%= form.number_field :price, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="my-5">
-    <%= form.label :quantity %>
-    <%= form.text_field :quantity, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="row mb-3">
+    <div class="col-12 col-md-3">
+      <%= form.label :quantity, class: "form-label" %>
+    </div>
+    <div class="col-12 col-md-9">
+      <%= form.text_field :quantity, class: "form-control" %>
+    </div>
   </div>
-  <br>
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+
+  <div class="row mb-3">
+    <div class="col-12">
+      <%= form.submit "Add Food", class: "btn btn-outline-dark float-end" %>
+    </div>
   </div>
 <% end %>

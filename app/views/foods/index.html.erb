@@ -1,28 +1,36 @@
-<div class="container mx-auto mt-40 px-4" style="width: 66.67%">
-  <div>
-    <div class="flex justify-end items-center mt-3">
-      <%= link_to 'Add Food', new_food_path, class:'bg-blue-500 px-4 py-2 font-semibold text-white inline-flex space-x-2 rounded' %> 
-    </div>
-    <br>
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-      <thead class="text-xs text-white uppercase bg-black dark:bg-gray-700 dark:text-gray-400">
-        <tr>
-          <th class="px-6 py-3"> Food </th>
-          <th class="px-6 py-3"> Measurement Unit </th>
-          <th class="px-6 py-3"> Price </th>
-          <th class="px-6 py-3"> Actions </th>
-        </tr>
-      </thead>
-      <tbody class="overflow-y-scroll" style="height: 200px">
-        <% @foods.each_with_index do |food, index| %>
-          <tr class="bg-white even:bg-gray-100 capitalize border border-b dark:bg-gray-800 dark:border-gray-700">
-            <%= render partial: "food", locals: {data: food, price: true, quantity: false} %>
-            <td class="px-6 py-4" >
-              <%= button_to "Delete", food_path(food.id), method: :delete, data: { confirm: "Are you sure?" }, class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %>
-            </td>
+<div class="container my-5">
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Food</th>
+            <th scope="col">Measurement Unit</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Action</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @foods.each do |food| %>
+            <tr>
+              <td><%= food.name %></td>
+              <td><%= food.measurement_unit %></td>
+              <td>$ <%= food.price %></td>
+              <td>
+                <%= button_to raw("<i class=\"bi bi-x-circle\"></i> Delete"),
+                    food_path(:id => food.id),
+                    class: "btn btn-danger",
+                    :method => :delete %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-end">
+      <%= link_to "Add Food", new_food_path, class: "btn btn-outline-dark mt-3" %>
+    </div>
   </div>
 </div>
