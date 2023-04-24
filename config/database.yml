@@ -71,6 +71,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: Cook_Partner_production
   username: Cook_Partner
   password: <%= ENV["COOK_PARTNER_DATABASE_PASSWORD"] %>
